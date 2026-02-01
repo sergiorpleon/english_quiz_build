@@ -32,16 +32,20 @@
   <title>English Quiz</title>
   <link rel="manifest" href="manifest.json">
   <style>
-  body {
+  html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
     display: flex;
     justify-content: center;
     background-color: #f0f0f0;
   }
 
   #flt-glass-pane {
-    max-width: 400px;      /* ancho tipo móvil */
-    width: 100%;            /* escala al contenedor */
+    width: 400px;        /* ancho fijo tipo móvil */
+    height: 800px;       /* alto fijo tipo móvil */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
   }
 </style>
 </head>
