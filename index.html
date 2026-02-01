@@ -19,7 +19,6 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-  <meta name="viewport" content="width=400">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -32,84 +31,8 @@
 
   <title>hello_world</title>
   <link rel="manifest" href="manifest.json">
-  <style>
-  body {
-    display: flex;
-    justify-content: center;
-  }
-
-  #flt-glass-pane {
-    max-width: 400px; /* ancho tipo móvil */
-  }
-</style>
 </head>
 <body>
-<script>
-    window.addEventListener("load", function () {
-        if (!parent) {
-            console.log("Not IFrame");
-        }
-        console.log("launchMain");
-        parent?.postMessage({ sender: "frame", type: "launchMain" }, "*");
-    });
-
-    let _console;
-    initConsole();
-    function initConsole() {
-        _console = window.console;
-        window.console = {
-            ..._console,
-            log: function (msg) {
-                sendLog(msg, "text");
-                _console.log.apply(_console, arguments);
-            },
-            info: function (msg) {
-                sendLog(msg, "info");
-                _console.info.apply(_console, arguments);
-            },
-            warn: function (msg) {
-                sendLog(msg, "warning");
-                _console.warn.apply(_console, arguments);
-            },
-            error: function (msg) {
-                sendLog(msg, "error");
-                _console.error.apply(_console, arguments);
-            },
-        };
-        window.onerror = function (error) {
-            sendLog(error, "error");
-            sendError(error);
-        };
-        function sendLog(msg, type) {
-            // TODO: replace with post message
-            // type: log
-            // body => log:{message:msg,type:type}
-            //
-            window.parent.postMessage(
-                {
-                    sender: "frame",
-                    type: "log",
-                    log: { message: msg, type: type },
-                },
-                "*"
-            );
-        }
-        function sendError(error) {
-            // TODO: replace with post message
-            // type: error
-            // body => error
-            //
-            window.parent.postMessage(
-                {
-                    sender: "frame",
-                    type: "error",
-                    error: error,
-                },
-                "*"
-            );
-        }
-    }
-</script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
