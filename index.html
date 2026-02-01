@@ -31,27 +31,22 @@
 
   <title>English Quiz</title>
   <link rel="manifest" href="manifest.json">
-  <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+<style>
+  body {
+    background-color: #f0f0f0; /* Color de fondo fuera de la app */
     display: flex;
     justify-content: center;
-    background-color: #f0f0f0;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
   }
-
-  #flt-glass-pane {
-    width: 400px;        /* ancho fijo tipo móvil */
-    height: 800px;       /* alto fijo tipo móvil */
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  #flutter_app_container {
+    width: 400px;
+    height: 800px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3);
     overflow: hidden;
-  }
-  flutter-view{
-    width: 400px;        /* ancho fijo tipo móvil */
-    height: 800px;       /* alto fijo tipo móvil */
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    overflow: hidden;
+    border-radius: 16px;
   }
 </style>
 </head>
